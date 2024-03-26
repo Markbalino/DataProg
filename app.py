@@ -5,7 +5,6 @@ import matplotlib as mpl
 from matplotlib import style
 import matplotlib.pyplot as plt
 
-
 df = pd.read_csv('USA_cars_datasets.csv')
 
 st.title("Data Storytelling ")
