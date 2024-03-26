@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('USA_cars_datasets.csv')
 
-st.title("Data Storytelling")
+st.title("Data Storytelling ")
 st.write("1. How does price vary across different car brands?")
 
 car_brands = df["brand"].unique()
@@ -25,7 +25,7 @@ ax.grid(True)
 plt.tight_layout()
 st.pyplot(fig)
 
-st.write("Insight: makikita dito kung ano ano ang mga brand na may pinaka mahal at may pinaka murang kotse.")
+st.write("Insight: Makikita dito kung ano ano ang mga brand na may pinaka mahal at may pinaka murang kotse.")
 st.write("2. How does price change with vehicle age?")
 
 df['age'] = 2024 - df['year']
@@ -42,7 +42,7 @@ ax.grid(True)
 plt.tight_layout()
 st.pyplot(fig)
 
-st.write("Insight: makikita sa graph kung paano yung pag baba ng price ng kotse base sa kung gaano na ito ka luma")
+st.write("Insight: Makikita sa graph kung paano yung pag baba ng price ng kotse base sa kung gaano na ito ka luma")
 st.write("3. Does the location of the car impact its price?")
 
 average_price_by_location = df.groupby('country')['price'].mean().reset_index()
@@ -53,14 +53,8 @@ st.pyplot(fig)
 st.write("Insight: Makikita sa graph na malaki ang pinag kaiba ng price ng kotse depende sa country")
 st.write("4. How does the condition of the car title affect its price?")
 
-def create_bar_chart(segment_by='year'):  # Set 'year' as the default segment
-    """
-    Creates a bar chart showing average car price by year and title status.
-
-    Args:
-        segment_by (str, optional): The column to group the data by (default is 'year').
-    """
-
+def create_bar_chart(segment_by='year'):
+ 
     fig, ax = plt.subplots(figsize=(10, 6))
 
     average_price = df.groupby([segment_by, 'title_status'])['price'].mean().unstack()
@@ -76,11 +70,10 @@ def create_bar_chart(segment_by='year'):  # Set 'year' as the default segment
 
     return fig
 
-# No need for segment_by selection here since it's set to 'year' by default
-fig = create_bar_chart()  # Call the function without any arguments
+fig = create_bar_chart()
 st.pyplot(fig)
 
-st.write("Insight: makikita dito ang pinagkaiba sa presyo ng clean at salvage car title ang ibig sabihin lang ng kotse na may salvage title ay masira ang kotse dahil sa aksidente(na bangga most of the time) at inayos lang ulit")
+st.write("Insight: Makikita dito ang pinagkaiba sa presyo ng clean at salvage car title ang ibig sabihin lang ng kotse na may salvage title ay masira ang kotse dahil sa aksidente(na bangga most of the time) at inayos lang ulit")
 st.write("5. How does the price of a car vary across different car lots?")
 
 fig, ax = plt.subplots(figsize=(10, 6))
